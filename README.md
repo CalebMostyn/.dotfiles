@@ -1,7 +1,7 @@
 # Requirements
 
 ```bash
-sudo pacman -S git stow
+sudo pacman -S git stow zsh starship
 ```
 
 # Setup 
