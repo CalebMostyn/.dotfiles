@@ -1,1 +1,2 @@
 stow tmux/
+stow nvim/
