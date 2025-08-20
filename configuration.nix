@@ -106,7 +106,7 @@
   neovim
   gcc
   wget
-  alacritty
+  gnome-terminal
   discord
   steam
   google-chrome
