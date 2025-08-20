@@ -104,11 +104,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   neovim
+  gcc
   wget
   alacritty
   discord
   steam
   google-chrome
+  brave
   neofetch
   git
   stow
