@@ -70,7 +70,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -90,6 +90,9 @@
     ];
   };
 
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -106,15 +109,16 @@
   neovim
   gcc
   wget
+  unzip
   gnome-terminal
   discord
   steam
   google-chrome
-  brave
   neofetch
   git
   stow
   tmux
+  fish
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
