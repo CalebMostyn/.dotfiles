@@ -7,7 +7,7 @@ To rebuild the NixOS configuration, use the classic command with flake. This is 
 
 ```bash
 # My configuration is currently named 'desktop' to match my hostname
-sudo nixos-rebuild switch --flake /etc/nixos/#desktop
+sudo nixos-rebuild switch --flake .#desktop
 ```
 
 Until I have fully Nix-ified my program configurations, run `config.sh` to symlink the dotfiles with GNU Stow.
