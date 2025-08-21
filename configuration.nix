@@ -108,18 +108,34 @@
   environment.systemPackages = with pkgs; [
   neovim
   gcc
+  curl
   wget
   unzip
   gnome-terminal
   discord
   steam
+  pciutils
+  vulkan-tools
+  mesa-demos
   google-chrome
   neofetch
   git
   stow
   tmux
   fish
+  (godot-mono.override {
+    version = "4.4.1-stable";
+  })
   ];
+
+  hardware.opengl.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.opengl.extraPackages = with pkgs; [
+    vulkan-loader
+    vulkan-tools
+    vulkan-validation-layers
+  ];
+  programs.steam.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -133,6 +149,8 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  programs.ssh.startAgent = true;
+  # programs.ssh.enableAgentForwarding = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
