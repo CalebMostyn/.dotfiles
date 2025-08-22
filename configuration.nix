@@ -126,6 +126,10 @@
   (godot-mono.override {
     version = "4.4.1-stable";
   })
+  dpkg
+  python3
+  sshpass
+  sshfs
   ];
 
   hardware.opengl.enable = true;
@@ -148,7 +152,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
   programs.ssh.startAgent = true;
   # programs.ssh.enableAgentForwarding = true;
 
@@ -166,4 +170,15 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  # programs.fish.shellAliases = {
+  #   exec-dynamic-binary = "NIXPKGS_ALLOW_UNFREE=1 nix run --impure nixpkgs#steam-run --";
+  # };
+
+  programs.fish.shellInit= ''
+    function exec-dynamic-binary
+        set binary $argv[1]
+        set args $argv[2..-1]
+        NIXPKGS_ALLOW_UNFREE=1 nix run --impure nixpkgs#steam-run -- ./$binary $args
+    end
+  '';
 }
