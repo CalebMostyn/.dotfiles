@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+packages=$(grep -v '^#' packages.txt | tr '\n' ' ')
+echo "Installing Arch Packages: $packages"
+sudo pacman -S $packages
+
+# install yay if not already
+if [ ! command -v yay &> /dev/null ]; then
+    echo "No yay installation detected, building from source"
+    git clone https://aur.archlinux.org/yay-bin.git
+    cd yay-bin
+    sudo pacman -S base-devel
+    makepkg -si
+    cd ../ && rm -rf yay-bin
+fi
+
+aur_packages=$(grep -v '^#' packages-aur.txt | tr '\n' ' ')
+echo "Installing AUR Packages: $aur_packages"
+yay -S $aur_packages
