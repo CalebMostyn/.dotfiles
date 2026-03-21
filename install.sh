@@ -24,6 +24,7 @@ curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/
 
 # run services
 sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now firewalld
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now sddm # login
 sudo systemctl enable --now sshd # ssh
