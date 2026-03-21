@@ -2,6 +2,7 @@
 
 # home directory configs
 stow bash/
+stow btop/
 stow nvim/
 stow tmux/
 stow fonts/
