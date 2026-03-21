@@ -7,4 +7,4 @@ stow tmux/
 stow fonts/
 
 # / directory configs
-sudo stow -t / reflector
+sudo stow -t / reflector/
