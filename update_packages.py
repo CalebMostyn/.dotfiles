@@ -38,13 +38,30 @@ def get_package_category(package, map):
     print(f'category for package {package}')
     for ii in range(len(categories)):
         print(f'{ii}: {categories[ii]}')
-    selection = int(input('enter index: '))
-    map[categories[selection]].append(package)
+    category = ''
+    skip = False
+    while not category:
+        usr_in = input('enter index, a to add new category, or n to omit: ')
+        if usr_in == 'a':
+            category = input('name of new category?: ')
+            map[category] = []
+        elif usr_in == 'n':
+            skip = True
+            break
+        else:
+            try:
+                index = int(usr_in)
+                category = categories[index]
+            except:
+                print('invalid input')
+
+    if not skip:
+        map[category].append(package)
 
 def to_remove(package):
     usr_in = ''
     while usr_in != 'y' and usr_in != 'n':
-        usr_in = input(f'{package} was removed, remove from conf? (y/n):')
+        usr_in = input(f'{package} was removed, remove from conf? (y/n): ')
     return usr_in == 'y'
 
 def write_to_file(map, path):
