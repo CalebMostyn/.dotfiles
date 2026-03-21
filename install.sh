@@ -3,7 +3,7 @@ set -e
 
 packages=$(grep -v '^#' packages.conf | tr '\n' ' ')
 echo "Installing Arch Packages: $packages"
-sudo pacman -S $packages
+sudo pacman -S --needed $packages
 
 # install yay if not already
 if [ ! command -v yay &> /dev/null ]; then
@@ -17,7 +17,7 @@ fi
 
 aur_packages=$(grep -v '^#' packages-aur.conf | tr '\n' ' ')
 echo "Installing AUR Packages: $aur_packages"
-yay -S $aur_packages
+yay -S --needed $aur_packages
 
 # install git autocomplete script
 curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
