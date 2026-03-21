@@ -6,6 +6,8 @@ Out of date Nix-Os configuration files are on a branch titled `nix-os`, just in 
 
 # Usage
 
-Run `install.sh` to install all of the packages in `packages.txt` and `packages-aur.txt`
+Run `install.sh` to install all of the packages in `packages.conf` and `packages-aur.conf`
 
 Run `config.sh` to symlink the dotfiles with GNU Stow.
+
+Run `update_packages.py` to sync current packages with .conf files.
