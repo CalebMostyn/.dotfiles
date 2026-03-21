@@ -41,6 +41,12 @@ def get_package_category(package, map):
     selection = int(input('enter index: '))
     map[categories[selection]].append(package)
 
+def to_remove(package):
+    usr_in = ''
+    while usr_in != 'y' and usr_in != 'n':
+        usr_in = input(f'{package} was removed, remove from conf? (y/n):')
+    return usr_in == 'y'
+
 def write_to_file(map, path):
     with open(path, 'w') as file:
         for category, packages in map.items():
@@ -65,6 +71,23 @@ prev_aur_packages = to_list(read_file('packages-aur.conf'))
 
 categories = get_category_map(prev_packages)
 aur_categories = get_category_map(prev_aur_packages)
+
+# remove deleted packages from conf
+for _, packages in categories.items():
+    removed = []
+    for package in packages:
+        if not package_exists(package, curr_packages):
+            if to_remove(package):
+                removed.append(package)
+    remove_duplicates(packages, removed)
+
+for _, packages in aur_categories.items():
+    removed = []
+    for package in packages:
+        if not package_exists(package, curr_aur_packages):
+            if to_remove(package):
+                removed.append(package)
+    remove_duplicates(packages, removed)
 
 # sort new packages based on user selection
 for package in curr_packages:
