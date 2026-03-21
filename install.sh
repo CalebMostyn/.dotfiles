@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-packages=$(grep -v '^#' packages.txt | tr '\n' ' ')
+packages=$(grep -v '^#' packages.conf | tr '\n' ' ')
 echo "Installing Arch Packages: $packages"
 sudo pacman -S $packages
 
@@ -15,7 +15,7 @@ if [ ! command -v yay &> /dev/null ]; then
     cd ../ && rm -rf yay-bin
 fi
 
-aur_packages=$(grep -v '^#' packages-aur.txt | tr '\n' ' ')
+aur_packages=$(grep -v '^#' packages-aur.conf | tr '\n' ' ')
 echo "Installing AUR Packages: $aur_packages"
 yay -S $aur_packages
 
