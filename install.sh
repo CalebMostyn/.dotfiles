@@ -19,6 +19,9 @@ aur_packages=$(grep -v '^#' packages-aur.txt | tr '\n' ' ')
 echo "Installing AUR Packages: $aur_packages"
 yay -S $aur_packages
 
+# install git autocomplete script
+curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
 # run services
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now bluetooth
