@@ -26,6 +26,7 @@ plasma-desktop
 plasma-nm
 plasma-pa
 plasma-systemmonitor
+reflector
 sddm
 sddm-kcm
 sof-firmware

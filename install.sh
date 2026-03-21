@@ -18,3 +18,12 @@ fi
 aur_packages=$(grep -v '^#' packages-aur.txt | tr '\n' ' ')
 echo "Installing AUR Packages: $aur_packages"
 yay -S $aur_packages
+
+# run services
+sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now bluetooth
+sudo systemctl enable --now sddm # login
+sudo systemctl enable --now sshd # ssh
+# update arch mirrors
+sudo systemctl enable reflector # run on boot
+sudo systemctl enable --now reflector.timer # run on timer
