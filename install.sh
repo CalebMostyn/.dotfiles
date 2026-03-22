@@ -20,7 +20,10 @@ echo "Installing AUR Packages: $aur_packages"
 yay -S --needed $aur_packages
 
 # install git autocomplete script
-curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+if [ ! -f ~/.git-completion.bash ]; then
+    echo "Getting git bash autocomplete script"
+    curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+fi
 
 # run services
 sudo systemctl enable --now NetworkManager
@@ -28,6 +31,10 @@ sudo systemctl enable --now firewalld
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now sddm # login
 sudo systemctl enable --now sshd # ssh
+sudo systemctl enable --now docker # ssh
 # update arch mirrors
 sudo systemctl enable reflector # run on boot
 sudo systemctl enable --now reflector.timer # run on timer
+
+# add user to docker group
+sudo usermod -aG docker $USER
