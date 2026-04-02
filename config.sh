@@ -7,6 +7,8 @@ stow btop/
 stow nvim/
 stow tmux/
 stow fonts/
+stow ghostty/
+stow wallpaper/
 
 # / directory configs
 sudo stow -t / reflector/
