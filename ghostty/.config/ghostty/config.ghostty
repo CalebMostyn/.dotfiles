@@ -1,8 +1,9 @@
 font-family = "JetBrainsMono Nerd Font"
-theme = iTerm2 Solarized Dark
+theme = Material Design Colors
 
 cursor-style = block
 cursor-style-blink = true
 shell-integration-features = no-cursor
 
+background = #0A162F
 background-opacity = 0.95
