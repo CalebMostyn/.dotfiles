@@ -1,4 +1,6 @@
 font-family = "JetBrainsMono Nerd Font"
+# disable remapping of sequences like '->' to single utf character
+font-feature = -liga,-calt
 theme = Material Design Colors
 
 cursor-style = block
