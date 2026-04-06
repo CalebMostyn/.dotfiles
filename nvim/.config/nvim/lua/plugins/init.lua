@@ -27,6 +27,7 @@ require('lazy').setup({
   { import = "plugins.vim-surround" },
   { import = "plugins.indent-line" },
   { import = "plugins.autopairs" },
+  { import = "plugins.undotree" },
 },
 {
   ui = {
