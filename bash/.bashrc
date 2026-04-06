@@ -27,7 +27,7 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # prompt
-PS1='[\u@\h \W]\$ '
+PS1='[\[\e[1;32m\]\u\[\e[m\]@\[\e[1;34m\]\h\[\e[m\] \W]\$ '
 
 # for sudoedit
 export EDITOR="nvim"
