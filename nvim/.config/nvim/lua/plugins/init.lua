@@ -18,7 +18,7 @@ require('lazy').setup({
   { import = "plugins.gitsigns" },
   { import = "plugins.which-key" },
   { import = "plugins.telescope" },
-  -- { import = "plugins.lsp" },
+  { import = "plugins.lsp" },
   { import = "plugins.theme" },
   { import = "plugins.mini" },
   { import = "plugins.treesitter" },
