@@ -25,6 +25,13 @@ if [ ! -f ~/.git-completion.bash ]; then
     curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 fi
 
+# setup python venv for konsave
+if [ ! -d kde/venv/ ]; then
+    cd kde/ && python -m venv venv && source venv/bin/activate && pip install konsave && cd -
+fi
+# import dumped kde profile, apply
+source kde/venv/bin/activate && konsave -r caleb && konsave -i kde/caleb.knsv && konsave -a caleb && deactivate
+
 # run services
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now firewalld
