@@ -33,7 +33,7 @@ def get_category_map(packages):
     return categories
 
 # prompt for category
-def get_package_category(package, map):
+def get_package_category(package, map, package_manager, sudo=False):
     categories = list(map.keys())
     print(f'category for package {package}')
     for ii in range(len(categories)):
@@ -41,13 +41,22 @@ def get_package_category(package, map):
     category = ''
     skip = False
     while not category:
-        usr_in = input('enter index, a to add new category, or n to omit: ')
+        usr_in = input('enter index, a to add new category, n to omit, or r to remove: ')
         if usr_in == 'a':
             category = input('name of new category?: ')
             map[category] = []
         elif usr_in == 'n':
             skip = True
             break
+        elif usr_in == 'r':
+            if input('are you sure? [y/N]: ') == 'y':
+                cmd = [package_manager, '-R', package]
+                if sudo:
+                    cmd.insert(0, 'sudo')
+                print(' '.join(cmd))
+                subprocess.run(cmd)
+                skip = True
+                break
         else:
             try:
                 index = int(usr_in)
@@ -109,11 +118,11 @@ for _, packages in aur_categories.items():
 # sort new packages based on user selection
 for package in curr_packages:
     if not package_exists(package, prev_packages):
-        get_package_category(package, categories)
+        get_package_category(package, categories, 'pacman', True)
 
 for package in curr_aur_packages:
     if not package_exists(package, prev_aur_packages):
-        get_package_category(package, aur_categories)
+        get_package_category(package, aur_categories, 'yay')
 
 # write new changes
 write_to_file(categories, 'packages.conf')
