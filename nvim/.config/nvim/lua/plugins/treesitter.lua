@@ -4,10 +4,11 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     -- version = 'v0.10.0'--[[ , ]]
-    commit = "4916d6592ede8c07973490d9322f187e07dfefac",
+    -- commit = "c82bf96f0a773d85304feeb695e1e23b2207ac35",
+    branch = "master",
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'cpp', 'python', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -20,7 +21,7 @@ return {
       indent = { enable = true, disable = { 'ruby' } },
     },
     config = function(_, opts)
-      require('nvim-treesitter.config').setup(opts)
+      require('nvim-treesitter.configs').setup(opts)
     end,
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
