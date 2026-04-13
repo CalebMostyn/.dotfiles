@@ -28,6 +28,7 @@ require('lazy').setup({
   { import = "plugins.indent-line" },
   { import = "plugins.autopairs" },
   { import = "plugins.undotree" },
+  { import = "plugins.debugger" },
 },
 {
   ui = {
