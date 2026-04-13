@@ -3,6 +3,7 @@
 # home directory configs
 rm ~/.bashrc # will conflict on first run
 stow bash/
+stow gdb/
 stow btop/
 stow nvim/
 stow tmux/
