@@ -5,7 +5,9 @@ return {
     build = ':TSUpdate',
     -- version = 'v0.10.0'--[[ , ]]
     -- commit = "c82bf96f0a773d85304feeb695e1e23b2207ac35",
-    branch = "master",
+    branch = 'master',
+    commit = '42fc28ba918343ebfd5565147a42a26580579482',
+    main = 'nvim-treesitter.configs',
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = { 'bash', 'c', 'cpp', 'python', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
@@ -20,9 +22,9 @@ return {
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
-    config = function(_, opts)
-      require('nvim-treesitter.configs').setup(opts)
-    end,
+    -- config = function(_, opts)
+    --   require('nvim-treesitter.configs').setup(opts)
+    -- end,
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
