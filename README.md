@@ -10,7 +10,7 @@ Run `config.sh` to symlink the dotfiles with GNU Stow.
 The main issue I've had linking my installs was Neovim. 24.04's install is out of date, but the latest version causes me a plethora of issues with nvim-treesitter. I have a working configuration for Arch, but for simplicities sake, until I'm on an Ubuntu version that can work with treesitter out of the box, I am pinning nvim at 11.4 and treesitter at working commits.
 
 ```bash
-curl -L0 https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.appimage
 chmod u+x nvim-linux-x86_64.appimage
-sudo mv nvim-linux-x86_64.appimage /usr/bin/local/nvim
+sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 ```
