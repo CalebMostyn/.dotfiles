@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # home directory configs
-rm ~/.bashrc # will conflict on first run
 stow bash/
 stow gdb/
 stow btop/
@@ -11,6 +10,3 @@ stow fonts/
 rm ~/.config/ghostty/config.ghostty # will conflict on first run
 stow ghostty/
 stow wallpaper/
-
-# / directory configs
-sudo stow -t / reflector/

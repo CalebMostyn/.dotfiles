@@ -1,13 +1,16 @@
 # Linux Configuration Files
-These are my Arch Linux configuration files. Currently each set of configuration files is isolated to a folder that can be symlinked
-with GNU stow. Ideally at some point I will have fully automated my configuration.
-
-Out of date Nix-Os configuration files are on a branch titled `nix-os`, just in case.
+This branch is for Ubuntu, as I've had enough issues trying to keep things the same between Ubuntu and Arch that it warranted seperating. I don't have any nice scripts for tracking and installing packages, as typically that is not needed in Ubuntu. This setup is for Ubuntu 24.04.
 
 # Usage
 
-Run `config.sh` to symlink the dotfiles with GNU Stow. Ideally run this before the install script, at least the first time, for files like the wallpaper and fonts.
+Run `config.sh` to symlink the dotfiles with GNU Stow.
 
-Run `install.sh` to install all of the packages in `packages.conf` and `packages-aur.conf` (see `install.sh -h`).
+## Neovim
 
-Run `update_packages.py` to sync current packages with .conf files.
+The main issue I've had linking my installs was Neovim. 24.04's install is out of date, but the latest version causes me a plethora of issues with nvim-treesitter. I have a working configuration for Arch, but for simplicities sake, until I'm on an Ubuntu version that can work with treesitter out of the box, I am pinning nvim at 11.4 and treesitter at working commits.
+
+```bash
+curl -L0 https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+sudo mv nvim-linux-x86_64.appimage /usr/bin/local/nvim
+```
