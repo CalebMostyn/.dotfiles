@@ -6,3 +6,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Loads existing or starts an obsession session on enter
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        local session = vim.fn.getcwd() .. "/Session.vim"
+
+        if vim.fn.filereadable(session) == 1 then
+            vim.cmd("source " .. vim.fn.fnameescape(session))
+        else
+            vim.cmd("Obsess")
+        end
+    end,
+})

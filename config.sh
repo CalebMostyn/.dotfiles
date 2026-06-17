@@ -3,6 +3,8 @@
 # home directory configs
 stow bash/
 stow gdb/
+rm ~/.gitconfig
+stow git/
 stow btop/
 stow nvim/
 stow tmux/

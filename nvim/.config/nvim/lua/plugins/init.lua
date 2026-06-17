@@ -25,6 +25,7 @@ require('lazy').setup({
   { import = "plugins.vim-be-good" },
   { import = "plugins.harpoon" },
   { import = "plugins.vim-surround" },
+  { import = "plugins.vim-obsession" },
   { import = "plugins.indent-line" },
   { import = "plugins.autopairs" },
   { import = "plugins.undotree" },
