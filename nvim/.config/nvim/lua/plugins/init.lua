@@ -29,6 +29,9 @@ require('lazy').setup({
   { import = "plugins.autopairs" },
   { import = "plugins.undotree" },
   { import = "plugins.debugger" },
+  { import = "plugins.conflict-marker" },
+  { import = "plugins.vim-abolish" },
+  { import = "plugins.snacks" },
 },
 {
   ui = {
